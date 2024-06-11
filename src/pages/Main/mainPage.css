@@ -1,0 +1,187 @@
+@font-face {
+    font-family: 'Ferry';
+    src: local('Ferry'), url('../../assets/fonts/ferry_black.otf') format('opentype');
+}
+
+.cover {
+    padding: 0 60px;
+    padding-top: 109px;
+}
+
+.cover-container {
+    display: flex;
+}
+
+.cover-container-left {
+    width: 60%;
+}
+
+.cover-container-right {
+    width: 40%;
+    background-image: url('./img/cover.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+h1 {
+    font-family: 'Ferry', sans-serif;
+    font-size: 60px;
+}
+
+h2 {
+    font-family: 'Ferry', sans-serif;
+    font-size: 45px;
+    margin-bottom: 70px;
+}
+
+.cover-container__text {
+    margin-top: 30px;
+    font-size: 20px;
+    max-width: 540px;
+}
+
+.cover-container__btn {
+    margin-top: 70px;
+    margin-bottom: 170px;
+    width: 335px;
+    height: 59px;
+    color: white;
+    background-color: var(--secondary-blue);
+    border: 0;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.noDisplay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.advantages {
+    margin: 0 60px;
+}
+
+.advantages-background {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    height: 30dvw;
+    }
+
+.advantages-background-left {
+    background-image: url('./img/backgroundLeft.svg');
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+}
+
+.advantages-background-right {
+    background-image: url('./img/backgroundRight.svg');
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+}
+
+.tariff {
+    margin: 0 60px;
+    margin-top: 108px;
+}
+
+.tariff-list {
+    margin: 0 -20px;
+    margin-bottom: 118px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 1330px) {
+    h1 {
+        font-size: 45px;
+    }
+
+    .cover-container__text {
+        font-size: 18px;
+    }
+
+    .cover-container__btn {
+        width: 260px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 920px) {
+
+    .cover {
+        padding: 0 15px;
+        padding-top: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .cover-container {
+        display: block;
+    }
+
+    .cover-container-left {
+        width: 100%;
+    }
+
+    .cover-container__btn {
+        margin-top: 35px;
+        margin-bottom: 50px;
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .cover-container-right {
+        width: 100%;
+        height: 100vw;
+        margin-top: -70px;
+        margin-bottom: 20px;
+    }
+
+    .advantages {
+        margin: 0 15px;
+    }
+
+    h2 {
+        font-family: 'Ferry', sans-serif;
+        font-size: 28px;
+        margin-bottom: 32px;
+        width: 60%;
+    }
+
+    .advantages-background {
+        display: block;
+        height: 110vw;
+    }
+
+    .advantages-background-left {
+        width: 100%;
+        height: 100vw;
+    }
+
+    .advantages-background-right {
+        height: 0px;
+    }
+
+    .tariff {
+        padding: 0 15px;
+        margin: 0 5px;
+    }
+
+    .tariff-list {
+        margin-bottom: 43px;
+    }
+}

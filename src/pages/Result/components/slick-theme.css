@@ -1,0 +1,75 @@
+@charset 'UTF-8';
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('./fonts/slick.eot');
+    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+}
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 43%;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 0;
+
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    outline: none;
+}
+
+
+
+.slick-prev
+{
+    left: -163px;
+    background-image: url('./img/arrow.png');
+    transform: rotate(180deg);
+    background-size: contain;
+    background-color: transparent;
+}
+
+
+.slick-next
+{
+    background-image: url('./img/arrow.png');
+    background-size: contain;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 920px) {
+    .slick-prev
+    {
+        left: -5px;
+    }
+    .slick-next
+    {
+        right: -5px;
+    }
+}

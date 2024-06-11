@@ -1,0 +1,45 @@
+.summary-container__header {
+    font-size: 30px;
+    margin-bottom: 17px;
+}
+
+.summary-container__description {
+    color: #949494;
+    font-size: 18px;
+}
+
+.summary-container-carousel {
+    display: flex;
+    justify-content: center;
+}
+
+.summary-container-carousel-slick {
+    margin-top: 27px;
+    border: 2px solid var(--primary-aqua);
+    height: 158px;
+    border-radius: 10px;
+    width: 90%;
+    align-items: center;
+    display: flex;
+}
+
+.summary-container-carousel-slick-headers {
+    background-color: var(--primary-aqua);
+    width: 133px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.summary-container-carousel-slick-headers__header {
+    color: white;
+    font-size: 20px;
+    font-weight: 500px;
+    margin: 10px 27px;
+}
+
+.summary-container-carousel-slick-info {
+    width: calc(100% - 133px);
+}

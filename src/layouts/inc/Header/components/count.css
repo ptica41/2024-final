@@ -1,0 +1,39 @@
+.header-auth-count-use,
+.header-auth-count-limit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1px;
+}
+
+.header-auth-count__text {
+    color: var(--primary-black);
+    font-size: 10px;
+    min-width: 125px;
+    margin-right: 9px;
+    text-align: end;
+}
+
+.header-auth-count__info_use {
+    width: 30px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.header-auth-count__info_limit {
+    width: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(138, 197, 64, 1);
+}
+
+@media screen and (max-width: 920px) {
+    .header-auth-count-use,
+    .header-auth-count-limit {
+        display: block;
+        align-items: start;
+    }
+
+    .header-auth-count__text {
+        text-align: start;
+    }
+}

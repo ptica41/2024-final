@@ -1,0 +1,122 @@
+.tariff-window {
+    min-width: 430px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+@media screen and (max-width: 1506px) {
+    .tariff-window {
+        width: 46%;
+    }
+}    
+
+@media screen and (max-width: 1096px) {
+    .tariff-window {
+        width: 100%;
+    }
+}    
+
+.tariff-window-name {
+    margin: 30px;
+    height: 72px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+}
+
+.tariff-window-name__name {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.tariff-window-name__description {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.tariff-window-container {
+    position: relative;
+    background-color: white;
+    /* margin: 2px; */
+    padding: 28px;
+    border-radius: 0 0 10px 10px;
+}
+
+.tariff-window-container_actual {
+    margin: 2px;
+}
+
+.tariff-window-container__cost {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.tariff-window-container__cost_crossed {
+    margin-left: 19px;
+    font-size: 30px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: line-through;
+}
+
+.tariff-window-container__description {
+    margin-top: 60px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.tariff-window-container__include {
+    margin: 5px 0;
+    padding-left: 30px;
+    font-size: 18px;
+    background-image: url('./img/done.png');
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tariff-window-container__btn {
+    height: 59px;
+    background-color: rgba(89, 112, 255, 1);
+    border-radius: 5px;
+    border: 0;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    margin-top: 55px;
+    cursor: pointer;
+}
+
+.tariff-window-container__btn_actual {
+    height: 59px;
+    background-color: rgba(210, 210, 210, 1);
+    border-radius: 5px;
+    border: 0;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 55px;
+    cursor: pointer;
+}
+
+.tariff__actual {
+    position: absolute;
+    display: flex;
+    top: 12px;
+    right: 10px;
+    width: 134px;
+    height: 24px;
+    border-radius: 10px;
+    background-color: rgba(59, 165, 224, 1);
+    color: white;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tariff__noActual {
+    display: none;
+}

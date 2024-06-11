@@ -1,0 +1,20 @@
+.advantage {
+    min-width: 360px;
+    height: 185px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.advantage__img {
+    margin-top: 10px;
+    width: 64px;
+    height: 64px;
+    background-position: left;
+}
+
+.advantage__text {
+    margin-top: 19px;
+    font-size: 18px;
+}

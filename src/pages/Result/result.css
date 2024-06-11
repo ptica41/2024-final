@@ -1,0 +1,24 @@
+.result {
+    margin: 0 60px;
+}
+
+.result-container {
+    display: flex;
+}
+
+.result-container-left {
+    margin-top: 69px;
+    width: 50%;
+}
+
+.result-container-right {
+    height: 369px;
+    background-image: url('./img/background.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50%;
+}
+
+.summary {
+    margin: 0 60px;
+}

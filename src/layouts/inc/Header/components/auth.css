@@ -1,0 +1,54 @@
+.header-auth-count {
+    width: 175px;
+    height: 63px;
+    background: rgba(217, 217, 217, 0.7);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-auth-account {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.header-auth-account-left {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.header-auth-account-left-fio {
+    font-size: 14px;
+}
+
+.header-auth-account-left-exit {
+    font-size: 10px;
+    text-decoration: none;
+    color: #000;
+    margin-top: 2px;
+}
+
+.header-auth-account-photo {
+    width: 32px;
+    height: 32px;
+    background-image: url('./img/faceless-man.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 6px;
+}
+
+@media screen and (max-width: 920px) {
+    .header-auth-account {
+        display: none;
+    }
+
+    .header-auth-count {
+        width: 155px;
+    }
+}

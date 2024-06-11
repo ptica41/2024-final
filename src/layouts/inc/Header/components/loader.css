@@ -1,0 +1,12 @@
+.header-auth-count__loader {
+    background-image: url('./img/loader.png');
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
