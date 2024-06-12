@@ -74,6 +74,7 @@
 .search_right__text {
     font-size: 18px;
     margin-top: 15px;
+    color: #949494;
 }
 
 .search_right__checkbox {
@@ -95,7 +96,7 @@
     height: 1em;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 1px solid black;
+    border: 1px solid #949494;
     margin-right: 0.5em;
     background-repeat: no-repeat;
     background-position: center center;
@@ -105,12 +106,22 @@
 .search_right__checkbox:checked+label::before {
     background-image: url("./img/agree.png");
     background-size: 100% 100%;
+    border: 1px solid black;
+}
+
+.search_right__checkbox:checked+label {
+    color: black;
 }
 
 .search_right__btn {
     width: 305px;
     margin-top: 92px;
     margin-left: 112px;
+}
+
+.search_right__btn_inActive {
+    pointer-events: none;
+    background-color: rgba(89, 112, 255, 0.5);
 }
 
 .search_right__description {

@@ -1,10 +1,11 @@
 import { useContext, createContext, useState } from "react"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext()
 
 const Context = ({ children }) => {
     const navigate = useNavigate()
+    const { pathname } = useLocation()
     const handleRedirect = (e) => navigate(`/${e}`)
     
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -65,7 +66,8 @@ const Context = ({ children }) => {
             const data = await response.json();
             setIsLoadInfo({status: true, used: data.eventFiltersInfo.usedCompanyCount, limit: data.eventFiltersInfo.companyLimit})
             
-        }
+        } else if (!isAuthenticated && pathname !== '/auth') handleRedirect('')
+
     }
 
     return (

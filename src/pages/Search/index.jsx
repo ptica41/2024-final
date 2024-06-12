@@ -8,6 +8,7 @@ const Search = () => {
 
     const { isAuthenticated, login, logout, whoAmI } = useContext(AuthContext)
 
+
     useEffect (() => {
         whoAmI(localStorage.getItem('access'))
     }, [])
