@@ -4,6 +4,14 @@ import './summary.css'
 
 const Summary = (props) => {
 
+    const result = (e) => {
+        let str = ''
+        for (let el in e) {
+            str += `<div className="slick-container"><div className="slick-container__date">${e[el].date}</div><div className="slick-container__summary">${e[el].total}</div><div className="slick-container__risk">${e[el].risk}</div></div>`
+        }
+        return str
+    }
+
     return (
         <div className="summary-container">
             <h2 className="summary-container__header">

@@ -23,9 +23,24 @@
     font-size: 14px;
 }
 
+.search-form_left__area_invalid {
+    width: 242px;
+    border-radius: 5px;
+    border: 2px solid red;
+    padding: 10px 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.search-form_left__area_invalid:focus {
+    border: 2px solid red;
+    outline: none;
+}
 
 .search-form_left__area::placeholder,
-.search-form_left__select {
+.search-form_left__select,
+.search-form_left__select_invalid {
     text-align: center;
     font-size: 14px;
 }
@@ -42,6 +57,25 @@
     background-position-x: 95%;
     background-position-y: center;
     cursor: pointer;
+}
+
+.search-form_left__select_invalid {
+    width: 252px;
+    border-radius: 5px;
+    border: 2px solid red;
+    padding: 10px 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-image: url('./img/arrow.svg');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+    cursor: pointer;
+}
+
+.search-form_left__select_invalid:focus {
+    border: 2px solid red;
+    outline: none;
 }
 
 /* Скрыть стандартную стрелку селекта */

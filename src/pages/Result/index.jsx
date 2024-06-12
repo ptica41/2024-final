@@ -6,7 +6,7 @@ import { AuthContext } from '../../context'
 
 const Result = () => {
 
-    const { isAuthenticated, login, logout, whoAmI } = useContext(AuthContext)
+    const { whoAmI } = useContext(AuthContext)
 
     useEffect (() => {
         whoAmI(localStorage.getItem('access'))
@@ -27,6 +27,9 @@ const Result = () => {
             </section>
             <section className="summary">
                 <Summary num={'1 000'}/>
+            </section>
+            <section className='documents'>
+            <h2 className="summary-container__header">Список документов</h2>
             </section>
         </>
     )

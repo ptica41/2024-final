@@ -1,47 +1,29 @@
 import Slider from "react-slick"
 import "./slick.css"
 import "./slick-theme.css"
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { AuthContext } from '../../../context'
+import Part from "./part"
 
 const Slick = () => {
 
+    const { histograms } = useContext(AuthContext)
 
-    var settings = {
+    const settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
-        slidesToShow: 2,
+        slidesToShow: histograms.length >= 6 ? 6 : histograms.length,
         slidesToScroll: 1,
       };
 
+
     return (
         <Slider {...settings}>
-            <div className="slick-container">
-                <div className="slick-container__date">
-                    01.01.2024 
-                </div>
-                <div className="slick-container__summary">
-                    5   
-                </div>
-                <div className="slick-container__risk">
-                    0
-                </div>
-            </div>
-            <div className="slick-container">
-                <div className="slick-container__date">
-                    01.01.2024 
-                </div>
-                <div className="slick-container__summary">
-                    5   
-                </div>
-                <div className="slick-container__risk">
-                    0
-                </div>
-            </div>
-
+            { histograms.map((item, index) => (
+                <Part date={item.date} total={item.total } risk={item.risk }/>
+            ))}
         </Slider>
     )
 }
