@@ -14,7 +14,7 @@ import './header.css'
 
 const Header = () => {
 
-    const { isAuthenticated, login, logout } = useContext(AuthContext)
+    const { isAuthenticated, isLoadInfo, logout } = useContext(AuthContext)
 
     const { pathname } = useLocation()
     
@@ -26,11 +26,19 @@ const Header = () => {
     const navigate = useNavigate()
 
     const handleRedirectToHome = () => navigate('/')
-    const auth = () => navigate('/auth')
+    const auth = () => {
+        navigate('/auth')
+        setIsVisibleBlock(false)
+    }
 
     useEffect( () => {
         setIsVisibleBlock(false)
     }, [pathname])
+
+    const exit = () => {
+        logout()
+        setIsVisibleBlock(false)
+    }
 
 
     return (
@@ -49,9 +57,7 @@ const Header = () => {
                     </nav>
                 </div>
                 <div className="header-auth">
-                    {isAuthenticated ? <Auth element={<Count />}/> : <NoAuth />}
-                    {/* <Auth element={<Loader />}/> */}
-                    {/* <Auth element={<Count />}/> */}
+                    {isAuthenticated ? (<Auth element={ isLoadInfo.status ? <Count /> : <Loader />}/>) : <NoAuth />}
 
                 </div>
                 <div className="header-mobile">
@@ -67,8 +73,8 @@ const Header = () => {
                 <Link to="/" className="mobile-nav__link">Главная</Link>
                 <Link to="/price" className="mobile-nav__link">Тарифы</Link>
                 <Link to="/faq" className="mobile-nav__link">FAQ</Link>
-                <button className="mobile-nav__signUp">Зарегистрироваться</button>
-                <button onClick={ auth } className="mobile-nav__signIn">Войти</button>
+                { !isAuthenticated ? <button className="mobile-nav__signUp">Зарегистрироваться</button> : '' }
+                { !isAuthenticated ? <button onClick={ auth } className="mobile-nav__signIn">Войти</button> : <button onClick={ exit } className="mobile-nav__signUp">Выйти</button>}
                 
             </div>
 

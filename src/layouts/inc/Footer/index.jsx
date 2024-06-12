@@ -4,7 +4,10 @@ import './footer.css'
 const Footer = () => {
     const navigate = useNavigate()
 
-    const handleRedirectToHome = () => navigate('/')
+    const handleRedirectToHome = () => {
+        navigate('/')
+        window.scrollTo(0, 0)
+    }
 
     return (
         <div className="footer">

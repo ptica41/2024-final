@@ -17,12 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Context>
       <DefaultLayout>
         <Routes>
-          
             <Route path='/auth' element={<Authorization />} />
             <Route path='/' element={<Main />} />
             <Route path='/result' element={<Result />} />
             <Route path='/search' element={<Search />} />
-        
         </Routes>
       </DefaultLayout>
       </Context>

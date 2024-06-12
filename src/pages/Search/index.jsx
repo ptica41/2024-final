@@ -1,7 +1,16 @@
 import './search.css'
 import Form from './components/form'
+import { useContext, useEffect } from 'react'
+
+import { AuthContext } from '../../context'
 
 const Search = () => {
+
+    const { isAuthenticated, login, logout, whoAmI } = useContext(AuthContext)
+
+    useEffect (() => {
+        whoAmI(localStorage.getItem('access'))
+    }, [])
 
     return (
         <section className="search">

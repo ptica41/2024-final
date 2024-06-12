@@ -1,7 +1,16 @@
+import { useContext, useEffect } from 'react'
 import Summary from './components/summary'
 import './result.css'
 
+import { AuthContext } from '../../context'
+
 const Result = () => {
+
+    const { isAuthenticated, login, logout, whoAmI } = useContext(AuthContext)
+
+    useEffect (() => {
+        whoAmI(localStorage.getItem('access'))
+    }, [])
 
     return (
         <>

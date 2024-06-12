@@ -5,9 +5,15 @@ export const AuthContext = createContext()
 
 const Context = ({ children }) => {
     const navigate = useNavigate()
-    const handleRedirect = () => navigate('/')
+    const handleRedirect = (e) => navigate(`/${e}`)
     
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [isInvalid, setIsInvalid] = useState(false)
+    const [isLoadInfo, setIsLoadInfo] = useState({
+        status: false,
+        used: 0,
+        limit: 0
+    })
     
     const login = async (e) => {
         
@@ -19,12 +25,15 @@ const Context = ({ children }) => {
                 },
                 body: JSON.stringify(e)
             })
+
             const data = await response.json();
             if (data['accessToken']) {
                 localStorage.setItem('access', data['accessToken']);
                 localStorage.setItem('expire', data['expire']);
                 setIsAuthenticated(true)
-                handleRedirect()
+                handleRedirect('')
+            } else {
+                setIsInvalid(true)
             }
 
         }
@@ -34,11 +43,33 @@ const Context = ({ children }) => {
         localStorage.removeItem('access')
         localStorage.removeItem('expire')
         setIsAuthenticated(false)
-        handleRedirect()
+        setIsLoadInfo({status: false, used: 0, limit: 0})
+        handleRedirect('')
+    }
+
+    const whoAmI = async (e) => {
+        if (localStorage.getItem('expire')) {
+            if (new Date().toISOString() > localStorage.getItem('expire')) logout()
+            
+            setIsAuthenticated(true)
+
+            const response = await fetch('https://gateway.scan-interfax.ru/api/v1/account/info', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json',
+                    'Authorization': `Bearer ${e}`
+                },
+            })
+
+            const data = await response.json();
+            setIsLoadInfo({status: true, used: data.eventFiltersInfo.usedCompanyCount, limit: data.eventFiltersInfo.companyLimit})
+            
+        }
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+        <AuthContext.Provider value={{ setIsInvalid, isInvalid, isAuthenticated, isLoadInfo, login, logout, whoAmI }}>
             { children }
         </AuthContext.Provider>
     )

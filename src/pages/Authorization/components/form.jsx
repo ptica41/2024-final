@@ -1,39 +1,41 @@
 import { useState, useContext } from 'react';
 import './form.css'
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context'
 
 const Form = () => {
 
-    const { isAuthenticated, login, logout } = useContext(AuthContext)
+    const { setIsInvalid, isInvalid, login } = useContext(AuthContext)
 
-    const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+        login: '',
+        password: ''
+    });
 
-    const handleRedirect = () => navigate('/')
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setIsInvalid(false)
+    };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormData({ login: '', password: '' });
+        login(formData);
+    };
 
-        const [formData, setFormData] = useState({
-            login: '',
-            password: ''
-        });
+    const isFull = (e) => {
+        if (e.login && e.password) return true
+        else return false
+    }
 
-      
-        const handleChange = (e) => {
-          setFormData({ ...formData, [e.target.name]: e.target.value });
-        };
+    function checkIfOnlyDigitsAndPlus(str) {
+        return /^[\d+]+$/.test(str);
+    }
 
-        const isFull = (e) => {
-            if (e.login && e.password) {
-                return true
-            } else {
-                return false
-            }
-        }
-      
-        const handleSubmit = async (e) => {
-          e.preventDefault();
-          await login(formData);
-        };
+    function checkInput(e) {
+        if (e.substring(0, 3) === '+79' && e.length !== 12) return false;
+        else if (e.substring(0, 3) === '+79' && !checkIfOnlyDigitsAndPlus(e)) return false;
+        else return true;
+    }
 
 
     return (
@@ -44,14 +46,15 @@ const Form = () => {
                     <div className="form-container-method__method">Войти</div>
                     <div className="form-container-method__method form-container-method__method_inActive">Зарегистрироваться</div>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="login" className='form-container__text'>Логин или номер телефона:</label>
-                    <input type="text" id="login" name="login" className='form-container__area' onChange={handleChange} required />
-
+                    <input type="text" id="login" name="login" value={formData.login} className={checkInput(formData.login) ? 'form-container__area' : 'form-container__area_invalid'} onChange={handleChange} required />
+                    <div className="form-container__error_login" style={{ opacity: checkInput(formData.login) ? 0 : 100 }}>Введите корректные данные</div>
                     <label htmlFor="password" className='form-container__text'>Пароль:</label>
-                    <input id="password" name="password" type='password' className='form-container__area' onChange={handleChange} required />
+                    <input id="password" name="password" type='password' value={formData.password} className='form-container__area' onChange={handleChange} required />
+                    <div className="form-container__error_login" style={{ opacity: isInvalid ? 100 : 0 }}>Неправильное имя или пароль</div>
 
-                    <button onClick={ handleSubmit } type="submit" className={ isFull(formData) ? 'form-container__btn' : 'form-container__btn form-container__btn_inActive' }>Войти</button>
+                    <button type="submit" className={(isFull(formData) && checkInput(formData.login)) ? 'form-container__btn' : 'form-container__btn form-container__btn_inActive'}>Войти</button>
                 </form>
                 <div className="form-container__repair">Восстановить пароль</div>
 

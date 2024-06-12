@@ -18,6 +18,9 @@
     padding-right: 10px;
     }
     
+.auth-container-right {
+    margin-bottom: 80px;
+}
 
 @media screen and (max-width: 1020px) {
     .auth-container-left__text {
@@ -40,6 +43,10 @@
     }
     .auth-container-left__text {
         font-size: 22px;
+    }
+
+    .auth-container-right {
+        margin-bottom: 0;
     }
 }  
 

@@ -10,23 +10,13 @@ import { useNavigate } from "react-router-dom"
 
 const Main = () => {
 
-    const auth = useContext(AuthContext)
+    const { isAuthenticated, login, logout, whoAmI } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     const handleRedirectToSearch = () => navigate('/search')
-    // const [todos, setTodos] = useState([])
 
-    // useEffect(() => {
-    //     getTodos()
-    // }, [])
-
-    // const getTodos = () => {
-    //     fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
-    //         .then(response => response.json())
-    //         .then(json => setTodos(json))
-    // }
-
+    
     const beginner = {
         name: 'Beginner',
         description: 'Для небольшого исследования',
@@ -54,7 +44,7 @@ const Main = () => {
         img: '/src/pages/Main/components/img/darts.png',
         actual: true
     }
-
+    
     const business = {
         name: 'Business',
         description: 'Для корпоративных клиентов',
@@ -69,7 +59,11 @@ const Main = () => {
         actual: false
     }
 
-
+    useEffect (() => {
+        whoAmI(localStorage.getItem('access'))
+    }, [])
+    
+    
     return (
         <>
             <section className="cover">
@@ -77,7 +71,7 @@ const Main = () => {
                     <div className="cover-container-left">
                         <h1>сервис по поиску <br />публикаций <br />о компании <br />по его ИНН</h1>
                         <div className="cover-container__text">Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.</div>
-                        <button onClick={ handleRedirectToSearch } className={ auth.isAuthenticated ? "cover-container__btn" : "cover-container__btn noDisplay"}>Запросить данные</button>
+                        <button onClick={ handleRedirectToSearch } className={ isAuthenticated ? "cover-container__btn" : "cover-container__btn noDisplay"}>Запросить данные</button>
                     </div>
                     <div className="cover-container-right"></div>
                 </div>

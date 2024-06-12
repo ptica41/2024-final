@@ -53,7 +53,26 @@
     border: 1px solid #C7C7C7;
     padding: 10px 5px;
     margin-top: 15px;
-    margin-bottom: 20px;
+}
+
+.form-container__area_invalid {
+    position: relative;
+    width: 96%;
+    border-radius: 5px;
+    border: 2px solid red;
+    padding: 10px 5px;
+    margin-top: 15px;
+}
+
+.form-container__area_invalid:focus {
+    border: 2px solid red;
+    outline: none;
+}
+
+.form-container__error_login {
+    color: red;
+    text-align: center;
+    height: 20px;
 }
 
 .form-container__btn {
