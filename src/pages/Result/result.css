@@ -26,4 +26,28 @@
 
 .documents {
     margin: 0 60px;
+    box-sizing: border-box;
+}
+
+.documents__header {
+    margin-bottom: 58px;
+}
+
+.documents-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.documents__btn {
+    margin: 0 25vw;
+    width: 40vw;
+    font-size: 22px;
+    color: white;
+    padding: 16px 50px;
+    background-color: var(--secondary-blue);
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 109px;
+    cursor: pointer;
 }

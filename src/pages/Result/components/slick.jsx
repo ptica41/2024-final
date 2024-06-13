@@ -22,7 +22,7 @@ const Slick = () => {
     return (
         <Slider {...settings}>
             { histograms.map((item, index) => (
-                <Part date={item.date} total={item.total } risk={item.risk }/>
+                <Part date={ item.date } total={ item.total } risk={ item.risk } key={Date.now()}/>
             ))}
         </Slider>
     )
