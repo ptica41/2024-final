@@ -26,7 +26,6 @@ const Result = () => {
     }
 
     const topicWhat = (e) => {
-        // console.log(e.content.markup)
         if (e.attributes.isTechNews === true) return 'Технические новости'
         else if (e.attributes.isAnnouncement === true) return 'Анонсы и события'
         else if (e.attributes.isDigest === true) return 'Сводки новостей'
@@ -34,7 +33,6 @@ const Result = () => {
     }
 
     const reform = (e) => {
-        console.log(e)
         if (e.indexOf('im') !== -1) {
             const start = e.indexOf(';img')
             const startImg = e.slice(start).indexOf('"')
